@@ -93,33 +93,20 @@
     <!-- Main Content -->
     <div class="container">
       <div class="row">
-  <!-- <div class="col-lg-8 col-lg-offset-2 text-center"> -->
-	<div class="col-lg-8 col-lg-offset-2">
-	  <h2>How do you want to study?</h2>
+	<div class="col-lg-8 col-lg-offset-2 text-center">
+	  <h2>What do you want to study?</h2>
+    <hr class="small">
+    What learning style do you prefer?
     <br>
-    <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Learning Style
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Visual</a></li>
-        <li><a href="#">Physical</a></li>
-        <li><a href="#">Verbal</a></li>
-        <li><a href="#">Aural</a></li>
-        <li><a href="#">Social</a></li>
-        <li><a href="#">Logical</a></li>
-      </ul>
-    </div>
-	  <hr class="small">
-	  Card Title:
-	  <br>
-	  <input type="text" name="title" form="postform">
-	  <hr class="small">
-	  Card Content:
-	  <br>
-	  <textarea name="post" form="postform" style="width:90%; height:300px;">
-	  </textarea>
-	  <form method="POST" action="myposts" id="postform" style="padding:5px;">
-	    <input type="submit" name="submit" value="Create"> <!-- value = "Post" -->
+
+    <form method="POST" action="createpost" id="learning" style="padding:5px;">
+      <select  name="learning">
+        <option value="verbal">Verbal</option>
+        <option value="visual">Visual</option>
+        <option value="aural">Aural</option>
+        <option value="physical">Physical</option>
+      </select>
+	    <button type="submit" name="submit" value="Continue">Continue</button>
 	  </form>
 	</div>
       </div>
@@ -129,6 +116,7 @@
     </div>
 
     <!-- jQuery -->
+
     <script src="/static/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -136,6 +124,15 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/static/js/clean-blog.min.js"></script>
+=======
+    <script src="static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="static/js/clean-blog.min.js"></script>
+>>>>>>> 61e7a630d4104575e9cf6e3cf17900eb8697368e
 
   </body>
 
