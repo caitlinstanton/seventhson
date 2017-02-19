@@ -32,19 +32,19 @@ def login():
         if db_methods.checkUser(request.form["username"], request.form["password"]):
             session["loggedIn"] = True
             session["username"] = request.form["username"]
-            return redirect(url_for("blog"))
+            return redirect(url_for("feed"))
         else:
             return render_template("login.html", error = "Invalid username or password")
     else:
         if session.has_key("loggedIn") and session["loggedIn"]:
-            return redirect(url_for("blog"))
+            return redirect(url_for("feed"))
         else:
             return render_template("login.html")
 
 @app.route("/signup", methods = ["GET", "POST"])
 def signup():
     if session.has_key("loggedIn") and session["loggedIn"]:
-        return redirect(url_for("blog"))
+        return redirect(url_for("feed"))
     else:
         if request.form.has_key("username"):
             if request.form["password"] != request.form["confirmPassword"]:
@@ -79,16 +79,32 @@ def myposts():
 def logout():
     if session.has_key("loggedIn") and session["loggedIn"]:
         session["loggedIn"] = False
-    return redirect(url_for("blog"))
+    return redirect(url_for("feed"))
 
-@app.route("/createpost")
+@app.route("/choosestyle")
+def choosestyle():
+    return render_template("createpost.html", username = session["username"])
+
+@app.route("/createpost", methods = ["GET","POST"])
 def createpost():
-    if session.has_key("loggedIn") and session["loggedIn"]:
-        return render_template("createpost.html", username = session["username"])
+    learning_style = request.form.get("learning")
+    print learning_style
+    if learning_style == "verbal":
+        return render_template("verbal.html", username = session["username"])
+    elif learning_style == "visual":
+        return render_template("visual.html", username = session["username"])
+    elif learning_style == "physical":
+        return render_template("physical.html", username = session["username"])
+    elif learning_style == "aural":
+        return render_template("aural.html", username = session["username"])
+    elif learning_style == "logical":
+        return render_template("logical.html", username = session["username"])
+    elif learning_style == "solitary" or learning_style == "social":
+        return render_template("verbal.html", username = session["username"])
     else:
         return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.debug = True
     app.secret_key = "secret_key"
-    app.run(host='0.0.0.0',port=8000)
+    app.run(host='0.0.0.0',port=8001)
