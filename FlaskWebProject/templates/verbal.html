@@ -95,18 +95,16 @@
       <div class="row">
 	<div class="col-lg-8 col-lg-offset-2 text-center">
 	  <h2>What do you want to study?</h2>
-    <hr class="small">
-    What learning style do you prefer?
-    <br>
- 
-    <form method="POST" action="createpost" id="learning" style="padding:5px;">
-      <select  name="learning">
-        <option value="verbal">Verbal</option>
-        <option value="visual">Visual</option>
-        <option value="aural">Aural</option>
-        <option value="physical">Physical</option>
-      </select>
-	    <button type="submit" name="submit" value="Continue">Continue</button>
+	  Card Title:
+	  <br>
+	  <input type="text" name="title" form="postform">
+	  <hr class="small">
+	  Card Content:
+	  <br>
+	  <textarea name="post" form="postform" style="width:90%; height:300px;">
+	  </textarea>
+	  <form method="POST" action="myposts" id="postform" style="padding:5px;">
+	    <input type="submit" name="submit" value="Post">
 	  </form>
 	</div>
       </div>
@@ -116,13 +114,13 @@
     </div>
 
     <!-- jQuery -->
-    <script src="static/js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="static/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="static/js/clean-blog.min.js"></script>
+    <script src="js/clean-blog.min.js"></script>
 
   </body>
 
