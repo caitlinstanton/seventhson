@@ -138,7 +138,7 @@ def getUserPosts(username):
     for i in c.execute(q):
         dbUsername = getUsername(i[2])
         if username == dbUsername:
-            blog = [i[0], i[1]]
+            blog = [i[0], i[1], dbUsername]
             blogList.append(blog)
     conn.commit()
     conn.close()

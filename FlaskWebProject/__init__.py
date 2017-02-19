@@ -1,13 +1,19 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-import db_methods
+import db_methods, bingTest
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "hard to guess"
+
 
 #This will be the general blog (before logging in)
 @app.route("/")
 @app.route("/home")
 def home():
 	return render_template("home.html")
+
+@app.route("/info")
+def info():
+    return render_template("info.html")
 
 @app.route("/feed", methods = ["GET", "POST"])
 def feed():
@@ -104,7 +110,15 @@ def createpost():
     else:
         return redirect(url_for("login"))
 
-if __name__ == "__main__":
-    app.debug = True
-    app.secret_key = "secret_key"
-    app.run(host='0.0.0.0',port=8001)
+@app.route("/verbal", methods = ["GET", "POST"])
+def verbal():
+    if request.method=="POST":
+        bing = bingTest.search(request.form['searchterm'])
+        return render_template("visual.html",bing=bing)
+    return render_template("visual.html",bing='No Search Has Been Done')
+
+#if __name__ == "__main__":
+#    app.debug = True
+#    app.secret_key = "secret_key"
+#    app.run(host='0.0.0.0',port=8001)
+
