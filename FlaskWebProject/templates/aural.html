@@ -83,7 +83,7 @@
               <h1>Let's Create {{username}}!</h1>
             </div>
           </div>
-	</div>
+	      </div>
       </div>
     </header>
 
@@ -92,7 +92,13 @@
     <div class="container">
       <div class="row">
 	<div class="col-lg-8 col-lg-offset-2 text-center">
-	  <h2>What do you want to study?</h2>
+	  <h2>Aural Learning Style</h2>
+    <hr class="small">
+    Upload an audio file:
+    <br>
+    <label class="btn btn-default btn-file">
+        Browse...<input type="file" style="display: none;">
+    </label>
 	  <hr class="small">
 	  Card Title:
 	  <br>
@@ -121,6 +127,14 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
 
+    <script>
+      $(document).ready( function() {
+        $(':file').on('fileselect', function(event, numFiles, label) {
+          console.log(numFiles);
+          console.log(label);
+        });
+      });
+    </script>
   </body>
 
 </html>
