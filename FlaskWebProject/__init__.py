@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import db_methods, bingTest
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "hard to guess"
 
 #This will be the general blog (before logging in)
 @app.route("/")
@@ -111,7 +112,7 @@ def verbal():
         return render_template("visual.html",bing=bing)
     return render_template("visual.html",bing='No Search Has Been Done')
 
-if __name__ == "__main__":
-    app.debug = True
-    app.secret_key = "secret_key"
-    app.run(host='0.0.0.0',port=8001)
+#if __name__ == "__main__":
+#    app.debug = True
+#    app.secret_key = "secret_key"
+#    app.run(host='0.0.0.0',port=8001)
