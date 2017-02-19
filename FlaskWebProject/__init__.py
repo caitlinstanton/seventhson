@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-import db_methods
+import db_methods, bingTest
 
 app = Flask(__name__)
 
@@ -103,6 +103,13 @@ def createpost():
         return render_template("verbal.html", username = session["username"])
     else:
         return redirect(url_for("login"))
+
+@app.route("/verbal", methods = ["GET", "POST"])
+def verbal():
+    if request.method=="POST":
+        bing = bingTest.search(request.form['searchterm'])
+        return render_template("visual.html",bing=bing)
+    return render_template("visual.html",bing='No Search Has Been Done')
 
 if __name__ == "__main__":
     app.debug = True

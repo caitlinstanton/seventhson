@@ -84,10 +84,10 @@ def getUsername(ID):
     conn.close()
     return name
 
-def addPost(title, post, user):
+def addPost(title, post, learning):
     conn = sqlite3.connect("blog.db")
     c = conn.cursor()
-    q = "INSERT INTO blogs VALUES('" + title + "','" + post + "'," + str(countPosts()) + "," + str(getUserID(user)) + ");"
+    q = "INSERT INTO blogs VALUES('" + title + "','" + post + "'," + str(countPosts()) + "," + learning + ");"
     c.execute(q)
     conn.commit()
     conn.close()
@@ -123,7 +123,7 @@ def getPosts():
     blogList = [] #A list of lists (smaller lists have title and content of one blog post)
     q = "SELECT Title,Content,UserID FROM blogs;"
     for i in c.execute(q):
-        username = getUsername(i[2])
+        learning = getUsername(i[2])
         blog = [i[0], i[1], username] #A list with the title and content
         blogList.append(blog)
     conn.commit()

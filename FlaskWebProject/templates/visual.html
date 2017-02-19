@@ -75,14 +75,12 @@
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <!-- url('static/img/create-bg.jpg') -->
-    <header class="intro-header" style="background-color: black">
+    <header class="intro-header" style="background-image: url('static/img/brain.jpg'); opacity: 0.85">
       <div class="container">
 	<div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="page-heading">
-              <h2>Let's Create {{username}}!</h2>
-              <hr class="small">
-              <span class="subheading">This is a place to create.</span>
+              <h1>Let's Create {{username}}!</h1>
             </div>
           </div>
 	</div>
@@ -95,27 +93,31 @@
       <div class="row">
 	<div class="col-lg-8 col-lg-offset-2 text-center">
 	  <h2>What do you want to study?</h2>
-    <hr class="small">
-    Learning Style:
-    <br>
-    <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Learning Style
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Visual</a></li>
-        <li><a href="#">Physical</a></li>
-        <li><a href="#">Verbal</a></li>
-      </ul>
-    </div>
+    
 	  <hr class="small">
 	  Card Title:
 	  <br>
 	  <input type="text" name="title" form="postform">
-	  <hr class="small">
-	  Card Content:
-	  <br>
-	  <textarea name="post" form="postform" style="width:90%; height:300px;">
-	  </textarea>
+	  
+    <section id="download" class="content-section text-center">
+      <div class="download-section">
+        <div class="download">
+    <h2>Search</h2>
+    <form method="POST" action="/verbal">
+      <input type="text" name="searchterm" placeholder="What do you want to search?"
+       style="width: 80%;color:#000000;">
+    <br>
+      <input type="submit" value="Search" style="padding: 20px; text-size:150%; margin:20px;">
+    </form>
+      <img src={{bing}} style="height:50%;width:50%"></img>
+      </div>
+    </section>
+
+    <hr class="small">
+    Card Content:
+    <br>
+    <textarea name="post" form="postform" style="width:90%; height:300px;">{{bing}}</textarea>
+       
 	  <form method="POST" action="myposts" id="postform" style="padding:5px;">
 	    <input type="submit" name="submit" value="Post">
 	  </form>

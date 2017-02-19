@@ -50,7 +50,7 @@
           <li>
 	    <a href="/" target="_top">Home</a>
 	  </li>
-	  <!--{% if session["loggedIn"] %}-->
+	  {% if session["loggedIn"] %}
 	  <li>
 	    <a href="/myposts" target="_top">My Posts</a>
 	  </li>
@@ -60,7 +60,7 @@
 	  <li>
 		<a href="/logout" target="_top">Logout</a>
 	  </li>
-	  <!--{% else %}-->
+	  {% else %}
 		<li>
 			<a href="/login" target="_top">Login</a>
 		</li>
@@ -79,11 +79,11 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <div class="page-heading">
-		  <!--{% if loggedIn == True %}
-            <h1>Welcome to Bloginator {{username}}!</h1>
-		  {% else %}-->
+		  {% if loggedIn == True %}
+            <h1>Welcome to Seventh Sense {{username}}!</h1>
+		  {% else %}
 			<h1>Welcome to Seventh Sense!</h1>
-		  <!--{% endif %}-->
+		  {% endif %}
           </div>
         </div>
       </div>
